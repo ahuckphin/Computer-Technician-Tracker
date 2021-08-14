@@ -93,6 +93,8 @@
 				$WindowsKey = $_POST['WindowsKey'];
 				$Status = $_POST['Status'];
 
+				echo "</br>";
+
 				if (empty($Hostname)) {
 					echo "Please enter hostname";
 					echo "<br>";
@@ -134,7 +136,7 @@
 					$Servername = "localhost";
 					$Username = "root";
 					$Password = "";
-					$Dbname = "psc";
+					$Dbname = "Computer-Technician-Tracker-Database";
 
 					// Create connection
 					$conn = new mysqli($Servername, $Username, $Password, $Dbname);

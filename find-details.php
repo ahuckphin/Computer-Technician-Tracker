@@ -53,6 +53,9 @@
 
 				<?php
 				$name = $_POST['ID'];
+
+				echo "</br>";
+
 				if (empty($name)) {
 					echo "ID not found";
 					echo "<br>";
@@ -62,7 +65,7 @@
 				$servername = "localhost";
 				$username = "root";
 				$password = "";
-				$dbname = "psc";
+				$dbname = "Computer-Technician-Tracker-Database";
 
 				// Create connection
 				$conn = new mysqli($servername, $username, $password, $dbname);

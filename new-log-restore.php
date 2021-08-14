@@ -34,7 +34,7 @@
 		<a href="index.php">return home </a>
 	<br />
 	<br />
-				<h3><b>3. New log - Restore</b></h3>
+				<h3><b>4. New log - Restore</b></h3>
 
 
 				<p>
@@ -42,13 +42,13 @@
 
 					<table style="width:50%">
 						<tr>
-							<td>Computer ID</td>
+							<td>Hostname</td>
 							<td><input type="text" name="Hostname"></td>
 						</tr>
 						<tr>
 							<td>Work</td>
 							<td>
-								<textarea id="work" name="Work" rows="40" cols="50">
+								<textarea id="work" name="Work" rows="20" cols="50">
 UEFI BIOS
 Disabled legacy boot.
 Enabled secure boot.
@@ -107,6 +107,9 @@ Boot menu showing correctly.
 				$Work = $_POST['Work'];
 				$Remarks = $_POST['Remarks'];
 
+				echo "<br>";
+				
+
 				if (empty($Hostname)) {
 					echo "Please enter Computer ID";
 					echo "<br>";
@@ -125,7 +128,7 @@ Boot menu showing correctly.
 					$Servername = "localhost";
 					$Username = "root";
 					$Password = "";
-					$Dbname = "psc";
+					$Dbname = "Computer-Technician-Tracker-Database";
 
 					// Create connection
 					$conn = new mysqli($Servername, $Username, $Password, $Dbname);

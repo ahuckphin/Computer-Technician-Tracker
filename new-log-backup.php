@@ -27,13 +27,13 @@
 		<!-- Blog entry -->
 		<div class="w3-card-4 w3-margin w3-white">
 
-		<br />
-		<div class="w3-container">
-		<a href="index.php">return home </a>
-	<br />
-	<br />
+			<br />
+			<div class="w3-container">
+				<a href="index.php">return home </a>
+				<br />
+				<br />
 
-			
+
 				<h3><b>3. New log - Backup</b></h3>
 
 
@@ -42,13 +42,13 @@
 
 					<table style="width:50%">
 						<tr>
-							<td>Computer ID</td>
+							<td>Hostname</td>
 							<td><input type="text" name="Hostname"></td>
 						</tr>
 						<tr>
 							<td>Work</td>
 							<td>
-								<textarea id="Work" name="Work" rows="90" cols="50">
+								<textarea id="Work" name="Work" rows="20" cols="50">
 UEFI BIOS
 Disabled legacy boot.
 Enabled secure boot.
@@ -159,6 +159,8 @@ Boot menu showing correctly.
 				$Work = $_POST['Work'];
 				$Remarks = $_POST['Remarks'];
 
+				echo "<br>";
+
 				if (empty($Hostname)) {
 					echo "Please enter Hostname";
 					echo "<br>";
@@ -172,12 +174,12 @@ Boot menu showing correctly.
 					echo "Please enter work";
 					echo "<br>";
 					echo "<br>";
-				}  else {
+				} else {
 
 					$Servername = "localhost";
 					$Username = "root";
 					$Password = "";
-					$Dbname = "psc";
+					$Dbname = "Computer-Technician-Tracker-Database";
 
 					// Create connection
 					$conn = new mysqli($Servername, $Username, $Password, $Dbname);
@@ -195,6 +197,8 @@ Boot menu showing correctly.
 
 					$conn->close();
 				}
+
+
 				?></p>
 
 			</div>
@@ -202,7 +206,7 @@ Boot menu showing correctly.
 	</div>
 
 
-	 
+
 
 
 </body>
