@@ -2,6 +2,8 @@
  
 Credits to w3schools.com/ for thier CSS file. - https://www.w3schools.com/w3css/w3css_downloads.asp
 
+Credits to @kreativekorp for this barcode generating script. https://github.com/kreativekorp/barcode
+
 Successfully deployable in local host environment with XAMPP and phpMyAdmin.
 
 Developed with Visual Studio Code, XAMPP and Edge (Chromium version). 
