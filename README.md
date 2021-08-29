@@ -8,26 +8,26 @@ Developed with Visual Studio Code, XAMPP and Edge (Chromium version).
 
 ## Features
 
-### Index
+### 1. Index
 Simple landing page with links to other pages plus disclaimers. 
 
-### Find details 
+### 2. Find details 
 Enter hostname and be returned from `details` table hostname printed in code 128 barcode, make and model, serial number, windows key, windows key in code 128 barcode, status and list of past completed work. 
 
-### New computer
+### 3. New computer
 Input hostname, make and model, serial number, windows key and status to be added into `details` table.
 
-### New log - Backup
+### 4. New log - Backup
 Enter hostname and check off work done, enter remarks and or enter Windows key to be added into `log` table with Window key being updated into `details` table. 
 
-### New log - Restore 
+### 5. New log - Restore 
 Enter hostname and check off work done, enter remarks and or enter Windows key to be added into `log` table with Window key being updated into `details` table. 
+
+### 6. Update Status from Yellow to Green
+With 1 button, change all computers with a status of yellow to have a status of green. 
 
 ## New log - Backup vs New log - Restore
 The reason for the existence of 2 different new log is because of adoption of the concept of disk imaging. You do all steps on 1 computer, image the disk and restore the image on another laptop allowing the skipping of many steps on the other laptop.  
-
-## Update Status from Yellow to Green
-With 1 button, change all computers with a status of yellow to have a status of green. 
 
 ## Limitations
 
