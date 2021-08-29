@@ -26,10 +26,16 @@ Enter hostname and check off work done, enter remarks and or enter Windows key t
 ## New log - Backup vs New log - Restore
 The reason for the existence of 2 different new log is because of adoption of the concept of disk imaging. You do all steps on 1 computer, image the disk and restore the image on another laptop allowing the skipping of many steps on the other laptop.  
 
+## Update Status from Yellow to Green
+With 1 button, change all computers with a status of yellow to have a status of green. 
+
 ## Limitations
 
 * For editing information and for viewing multiple rows of information from database at one time, database will need to be directly manipulated. 
 * Refreshing page will resubmit the form. 
+
+## Red, Yellow and Green Status
+This program has been developed with the concept of working from home. Whereby a technician collects computers from a place and brings them home. At this stage, the computers can be marked with a status of red. By default, a new computer will have a status of red. Following the completion of either a new long - backup or a new long - restore, the status will change to yellow. Indicating that the computer is ready for delivery. After delivery of computer has taken place, status can be changed to green indicating that it is no longer in the hands of the technician. 
 
 ## My work is different. How can I edit the work list? 
 There is unfortunatenly no front end interface to manipulate the work list. You will have to open `new-log-backup.php` and or `new-log-restore.php` file. Each work comprises of 2 lines of code. Example:
