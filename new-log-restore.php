@@ -50,8 +50,6 @@
 				<br />
 				<h3><b>4. New log - Restore</b></h3>
 
-
-				<p>
 				<form action="new-log-restore.php" method="post" onkeydown="return event.key != 'Enter';">
 
 					<table>
@@ -155,50 +153,64 @@
 						</tr>
 					</table>
 
-					<?php
+					</br>
+					</br>
+				</form>
 
-					$Hostname = $_POST['Hostname'];	
-					$Work = $_POST['work'];
-					$Remarks = $_POST['Remarks'];
-					$WindowsKey = $_POST['WindowsKey'];
+				<?php
 
+				$Hostname = $_POST['Hostname'];
+				$Work = $_POST['work'];
+				$Remarks = $_POST['Remarks'];
+				$WindowsKey = $_POST['WindowsKey'];
+
+				echo "<br>";
+
+				if (empty($Hostname)) {
+					echo '<span style="color:Red;"><b>"Please enter Hostname"</b></span>';
 					echo "<br>";
+					echo "<br>";
+				} else {
 
+					$Servername = "localhost";
+					$Username = "root";
+					$Password = "";
+					$Dbname = "Computer-Technician-Tracker-Database";
 
-					if (empty($Hostname)) {
-						echo "Please enter Hostname";
-						echo "<br>";
-						echo "<br>";
+					// Create connection
+					$conn = new mysqli($Servername, $Username, $Password, $Dbname);
+					// Check connection
+					if ($conn->connect_error) {
+						die("Connection failed: " . $conn->connect_error);
 					} else {
-
-						
+						if (!empty($WindowsKey)) {
+							$Sql = "UPDATE `details` SET `WindowsKey` = '$WindowsKey' WHERE `details`.`Hostname` = '$Hostname'";
+							if ($conn->query($Sql) === TRUE) {
+								echo '<span style="color:Green;"><b>Windows key updated successfully</b></span>';
+								echo "</br>";
+								echo "</br>";
+							} else {
+								echo "Error: " . $sql . "<br>" . $conn->error;
+								echo "</br>";
+								echo "</br>";
+							}
+						}
 
 						foreach ($_POST["work"] as $work) {
 							$TotalWork = $TotalWork . $work;
 						}
 						if (empty($TotalWork)) {
-							echo "Please check a checkbox";
+							echo '<span style="color:Red;"><b>"Please check a checkbox";</b></span>';
 							echo "</br>";
 							echo "</br>";
 						} else {
-							$Servername = "localhost";
-							$Username = "root";
-							$Password = "";
-							$Dbname = "Computer-Technician-Tracker-Database";
-
-							// Create connection
-							$conn = new mysqli($Servername, $Username, $Password, $Dbname);
-							// Check connection
-							if ($conn->connect_error) {
-								die("Connection failed: " . $conn->connect_error);
-							}
 
 							$Sql = "INSERT INTO Log (Hostname,Work,Remarks) VALUES ('$Hostname','$TotalWork','$Remarks' )";
 							if ($conn->query($Sql) === TRUE) {
 
 								//inserting of details from checklist into log table successful. 
 
-								echo "New record created successfully";
+								echo '<span style="color:Green;"><b>"New record created successfully"</b></span>';
 								echo "</br>";
 								echo "</br>";
 
@@ -207,25 +219,12 @@
 
 									//updating of status in details table successful.	
 
-									echo "Status updated successfully";
+									echo '<span style="color:Green;"><b>"Status updated successfully"</b></span>';
 									echo "</br>";
 									echo "</br>";
-
-									if (!empty($WindowsKey)) {
-										$Sql = "UPDATE `details` SET `WindowsKey` = '$WindowsKey' WHERE `details`.`Hostname` = '$Hostname'";
-										if ($conn->query($Sql) === TRUE) {
-											echo "Windows key updated successfully";
-											echo "</br>";
-											echo "</br>";
-										} else {
-											echo "Error: " . $sql . "<br>" . $conn->error;
-											echo "</br>";
-											echo "</br>";
-										}
-									}
 								} else {
 
-									//updating of status in details table successful.	
+									//updating of status in details table unsuccessful.	
 
 									echo "Error: " . $sql . "<br>" . $conn->error;
 									echo "</br>";
@@ -239,17 +238,12 @@
 								echo "</br>";
 								echo "</br>";
 							}
-
-							$conn->close();
 						}
 					}
-					?>
 
-					</br>
-					</br>
-				</form>
-
-				</p>
+					$conn->close();
+				}
+				?>
 
 			</div>
 		</div>

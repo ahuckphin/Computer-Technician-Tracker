@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dashboard</title>
 <link rel="stylesheet" href="w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
@@ -46,11 +47,15 @@
 				<h3><a href="new-log-restore.php">4. New Log - Restore</a></h3>
 				<br />
 				<br />
+				<h3><a href="yellow-to-green.php">5. Update Status from Yellow to Green</a></h3>
+				<br />
+				<br />
 				<p><b>Disclaimer: </b></p>
 				<p>1. Warning messages relating to .php files will apear during usage of this web application. </p>
 				<p>2. For editing information and for viewing multiple rows of information from database at one time, please see database directly - </p>
-				<p><a href="https://localhost/phpmyadmin/index.php?route=/database/structure&server=1&db=computer-technician-tracker-database">https://localhost/phpmyadmin/index.php?route=/database/structure&server=1&db=computer-technician-tracker-database </a></p>
-				<p>3. Computer Technician Tracker web application last updated 2021-August-15.</p>
+				<p><a href="/phpmyadmin/index.php?route=/database/structure&server=1&db=computer-technician-tracker-database">/phpmyadmin/index.php?route=/database/structure&server=1&db=computer-technician-tracker-database </a></p>
+				<p>3. Computer Technician Tracker web application last updated 2021-August-29.</p>
+				<p>4. Adding Windows product key can be done with either of new log pages.</p>
 			</div>
 		</div>
 		<hr>

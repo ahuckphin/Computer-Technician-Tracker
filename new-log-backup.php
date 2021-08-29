@@ -25,11 +25,12 @@
 		width: 25px;
 		height: 25px;
 	}
+
 	input[type='text'] {
 
-width: 100%;
+		width: 100%;
 
-}
+	}
 </style>
 
 <body>
@@ -44,12 +45,8 @@ width: 100%;
 				<a href="index.php">return home </a>
 				<br />
 				<br />
-
-
 				<h3><b>3. New log - Backup</b></h3>
 
-
-				<p>
 				<form action="new-log-backup.php" method="post" onkeydown="return event.key != 'Enter';">
 
 					<table>
@@ -61,7 +58,7 @@ width: 100%;
 							<td>Work</td>
 							<td>
 
-							UEFI BIOS
+								UEFI BIOS
 								<br />
 								<input type="checkbox" name="work[]" value="Reset UEFI BIOS. ">
 								<label for="work[]"> Reset UEFI BIOS. </label><br>
@@ -263,80 +260,89 @@ width: 100%;
 				echo "<br>";
 
 				if (empty($Hostname)) {
-					echo "Please enter Hostname";
+					echo '<span style="color:Red;"><b>"Please enter Hostname"</b></span>';
 					echo "<br>";
 					echo "<br>";
 				} else {
-					foreach ($_POST["work"] as $work) {
-						$TotalWork = $TotalWork . $work;
-					}
-					if (empty($TotalWork)) {
-						echo "Please check a checkbox";
+
+					$Servername = "localhost";
+					$Username = "root";
+					$Password = "";
+					$Dbname = "Computer-Technician-Tracker-Database";
+
+					// Create connection
+					$conn = new mysqli($Servername, $Username, $Password, $Dbname);
+					// Check connection
+					if ($conn->connect_error) {
+						die("Connection failed: " . $conn->connect_error);
 					} else {
-						$Servername = "localhost";
-						$Username = "root";
-						$Password = "";
-						$Dbname = "Computer-Technician-Tracker-Database";
-
-						// Create connection
-						$conn = new mysqli($Servername, $Username, $Password, $Dbname);
-						// Check connection
-						if ($conn->connect_error) {
-							die("Connection failed: " . $conn->connect_error);
-						}
-
-						$Sql = "INSERT INTO Log (Hostname,Work,Remarks) VALUES ('$Hostname','$TotalWork','$Remarks' )";
-						if ($conn->query($Sql) === TRUE) {
-							echo "New record created successfully";
-							echo "</br>";
-							echo "</br>";
-
-							
-
-							$Sql = "UPDATE `details` SET `Status` = 'Yellow' WHERE `details`.`Hostname` = '$Hostname'";
+						if (!empty($WindowsKey)) {
+							$Sql = "UPDATE `details` SET `WindowsKey` = '$WindowsKey' WHERE `details`.`Hostname` = '$Hostname'";
 							if ($conn->query($Sql) === TRUE) {
-								echo "Status updated successfully";
+								echo "Windows key updated successfully";
 								echo "</br>";
 								echo "</br>";
-
-								if (!empty($WindowsKey)) {
-									$Sql = "UPDATE `details` SET `WindowsKey` = '$WindowsKey' WHERE `details`.`Hostname` = '$Hostname'";
-									if ($conn->query($Sql) === TRUE) {
-										echo "Windows key updated successfully";
-										echo "</br>";
-										echo "</br>";
-
-									} else {
-										echo "Error: " . $sql . "<br>" . $conn->error;
-										echo "</br>";
-										echo "</br>";
-									}
-								}
 							} else {
 								echo "Error: " . $sql . "<br>" . $conn->error;
 								echo "</br>";
 								echo "</br>";
 							}
-						} else {
-							echo "Error: " . $sql . "<br>" . $conn->error;
-							echo "</br>";
-							echo "</br>";
 						}
-						
-						
-						$conn->close();
+
+						foreach ($_POST["work"] as $work) {
+							$TotalWork = $TotalWork . $work;
+						}
+						if (empty($TotalWork)) {
+							echo '<span style="color:Red;"><b>"Please check a checkbox";</b></span>';
+							echo "</br>";
+							echo "</br>";
+						} else {
+
+							$Sql = "INSERT INTO Log (Hostname,Work,Remarks) VALUES ('$Hostname','$TotalWork','$Remarks' )";
+							if ($conn->query($Sql) === TRUE) {
+
+								//inserting of details from checklist into log table successful. 
+
+								echo '<span style="color:Green;"><b>"New record created successfully"</b></span>';
+								echo "</br>";
+								echo "</br>";
+
+								$Sql = "UPDATE `details` SET `Status` = 'Yellow' WHERE `details`.`Hostname` = '$Hostname'";
+								if ($conn->query($Sql) === TRUE) {
+
+									//updating of status in details table successful.	
+
+									echo '<span style="color:Green;"><b>"Status updated successfully"</b></span>';
+									echo "</br>";
+									echo "</br>";
+								} else {
+
+									//updating of status in details table unsuccessful.	
+
+									echo "Error: " . $sql . "<br>" . $conn->error;
+									echo "</br>";
+									echo "</br>";
+								}
+							} else {
+
+								//inserting of details from checklist into log table unsuccessful.
+
+								echo "Error: " . $sql . "<br>" . $conn->error;
+								echo "</br>";
+								echo "</br>";
+							}
+						}
 					}
+
+					$conn->close();
 				}
-				
-				?></p>
+
+				?>
+
 
 			</div>
 		</div>
 	</div>
-
-
-
-
 
 </body>
 
