@@ -9,7 +9,7 @@ Successfully deployable in local host environment with XAMPP and phpMyAdmin.
 Developed with Visual Studio Code, XAMPP and Edge (Chromium version). 
 
 ## Features
-![Image of Screenshot](https://raw.githubusercontent.com/ahuckphin/Computer-Technician-Tracker/main/screenshot%20of%20landing%20page.png)
+ 
 ### 1. Index
 Simple landing page with links to other pages plus disclaimers. 
 
