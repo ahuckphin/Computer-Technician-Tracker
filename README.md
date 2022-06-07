@@ -92,4 +92,4 @@ CREATE TABLE `details` (
 This application was developed after failure to find a suitable application that can allow for the work done progress on computers to be documented digitally easily. This application allows technicians to be able to work on multiple computer concurrently and not forget what they have and have not done. Website is smartphone friendly.  
 
 ## Screenshot of landing page
-https://raw.githubusercontent.com/ahuckphin/Computer-Technician-Tracker/main/CTT.png
+![alt text]([http://url/to/img.png](https://raw.githubusercontent.com/ahuckphin/Computer-Technician-Tracker/main/CTT.png) 
