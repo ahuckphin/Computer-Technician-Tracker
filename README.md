@@ -1,5 +1,6 @@
 # Computer-Technician-Tracker
- <img width="100%" alt=" " src="[https://user-images.githubusercontent.com/8019099/134363898-4b29e18f-3e61-42b7-95bc-10891056249d.gif](http://url/to/img.png](https://raw.githubusercontent.com/ahuckphin/Computer-Technician-Tracker/main/CTT.png)">
+ <img width="100%" alt=" " src="https://github.com/ahuckphin/Computer-Technician-Tracker/blob/main/CTT.png">
+ 
 Credits to w3schools.com/ for thier CSS file. - https://www.w3schools.com/w3css/w3css_downloads.asp
 
 Credits to @kreativekorp for this barcode generating script. https://github.com/kreativekorp/barcode
